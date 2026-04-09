@@ -25,7 +25,7 @@ const traitLabels = {
 const careers = {
   software: {
     degree: "Ingeniería en Software",
-    profile: "Arquitecto Digital 🚀",
+    profile: "Arquitecto Digital",
     description:
       "Te interesa crear soluciones tecnológicas, programar y resolver problemas con lógica.",
     sales:
@@ -37,11 +37,11 @@ const careers = {
     ],
     next: ["Desarrollo web", "Apps móviles", "Producto digital"],
     whatsapp:
-      "Hola, hice el test vocacional de DASC y mi resultado fue Ingeniería en Software 🚀. Me gustaría recibir más información.",
+      "Hola, hice el test vocacional de DASC y mi resultado fue Ingeniería en Software. Me gustaría recibir más información.",
   },
   systems: {
     degree: "Sistemas Computacionales",
-    profile: "Gestor Tecnológico 💻",
+    profile: "Gestor Tecnológico",
     description:
       "Tienes afinidad con la tecnología aplicada, la administración de sistemas y la implementación digital.",
     sales:
@@ -53,11 +53,11 @@ const careers = {
     ],
     next: ["Infraestructura", "Soporte", "Transformación digital"],
     whatsapp:
-      "Hola, hice el test vocacional de DASC y mi resultado fue Sistemas Computacionales 💻. Me gustaría recibir más información.",
+      "Hola, hice el test vocacional de DASC y mi resultado fue Sistemas Computacionales. Me gustaría recibir más información.",
   },
   industrial: {
     degree: "Ingeniería Industrial y Sistemas",
-    profile: "Optimizador Estratégico ⚙️",
+    profile: "Optimizador Estratégico",
     description:
       "Tu mente analítica busca mejorar procesos, optimizar recursos y hacer que todo funcione mejor.",
     sales:
@@ -69,11 +69,11 @@ const careers = {
     ],
     next: ["Procesos", "Operaciones", "Mejora continua"],
     whatsapp:
-      "Hola, hice el test vocacional de DASC y mi resultado fue Ingeniería Industrial y Sistemas ⚙️. Me gustaría recibir más información.",
+      "Hola, hice el test vocacional de DASC y mi resultado fue Ingeniería Industrial y Sistemas. Me gustaría recibir más información.",
   },
   design: {
     degree: "Diseño Interactivo",
-    profile: "Creador Visual 🎨",
+    profile: "Creador Visual",
     description:
       "Tu talento está en la creatividad digital, el diseño y la creación de experiencias visuales.",
     sales:
@@ -85,11 +85,11 @@ const careers = {
     ],
     next: ["Interfaces", "UX/UI", "Contenido visual"],
     whatsapp:
-      "Hola, hice el test vocacional de DASC y mi resultado fue Diseño Interactivo 🎨. Me gustaría recibir más información.",
+      "Hola, hice el test vocacional de DASC y mi resultado fue Diseño Interactivo. Me gustaría recibir más información.",
   },
   marketing: {
     degree: "Mercadotecnia Digital",
-    profile: "Impulsor de Marcas 📱",
+    profile: "Impulsor de Marcas",
     description:
       "Te interesa la comunicación, las campañas y hacer crecer marcas con estrategia y creatividad.",
     sales:
@@ -101,11 +101,11 @@ const careers = {
     ],
     next: ["Campañas", "Branding", "Contenido"],
     whatsapp:
-      "Hola, hice el test vocacional de DASC y mi resultado fue Mercadotecnia Digital 📱. Me gustaría recibir más información.",
+      "Hola, hice el test vocacional de DASC y mi resultado fue Mercadotecnia Digital. Me gustaría recibir más información.",
   },
   admin: {
     degree: "Administración",
-    profile: "Líder Organizador 📊",
+    profile: "Líder Organizador",
     description:
       "Tienes habilidades para dirigir, organizar y tomar decisiones con visión de negocio.",
     sales:
@@ -117,7 +117,7 @@ const careers = {
     ],
     next: ["Gestión", "Liderazgo", "Emprendimiento"],
     whatsapp:
-      "Hola, hice el test vocacional de DASC y mi resultado fue Administración 📊. Me gustaría recibir más información.",
+      "Hola, hice el test vocacional de DASC y mi resultado fue Administración. Me gustaría recibir más información.",
   },
 };
 
@@ -379,7 +379,7 @@ const buildQuestionView = () => {
         <div>
           <div class="question-meta">
             <span>Paso ${state.currentQuestion + 1} de ${questions.length}</span>
-            <span class="quiz-meta-copy">Respuesta rápida, sin pensarlo demasiado</span>
+            <span class="quiz-meta-copy">Selecciona una opción</span>
           </div>
           <div class="progress" aria-hidden="true"><span style="width:${progress}%"></span></div>
           <h2>${question.prompt}</h2>
@@ -397,9 +397,9 @@ const buildQuestionView = () => {
         </div>
         <div class="quiz-card__footer">
           <button class="button button--text ${state.currentQuestion === 0 ? "is-hidden" : ""}" type="button" data-back-question>
-            ← Volver
+            Volver
           </button>
-          <p class="question-note">Elige lo que más se parezca a ti hoy.</p>
+          <p class="question-note">Selecciona la opción que mejor te describa.</p>
         </div>
       </div>
     </section>
@@ -409,12 +409,11 @@ const buildQuestionView = () => {
 const buildIntroView = () => `
   <section class="quiz-card quiz-card--intro">
     <div class="quiz-card__body">
-      <span class="quiz-card__eyebrow">Tu test está listo</span>
+      <span class="quiz-card__eyebrow">Test vocacional</span>
       <div>
-        <h2>Descubre tu perfil en 10 preguntas rápidas.</h2>
+        <h2>Responde 10 preguntas y descubre tu mejor opción.</h2>
         <p class="quiz-card__copy">
-          Vas a obtener tu perfil, la carrera que mejor hace match contigo en DASC
-          y dos alternativas cercanas para explorar.
+          Obtén un resultado personalizado con la carrera que mejor se alinea con tu perfil.
         </p>
       </div>
       <ul class="result-tags">
@@ -424,8 +423,8 @@ const buildIntroView = () => `
       </ul>
     </div>
     <div class="quiz-card__footer">
-      <p class="question-note">Ideal para estudiantes que todavía están comparando opciones.</p>
-      <button class="button button--primary" type="button" data-launch-quiz>👉 Empezar test</button>
+      <p class="question-note">Duración estimada: 2 minutos.</p>
+      <button class="button button--primary" type="button" data-launch-quiz>Empezar test</button>
     </div>
   </section>
 `;
@@ -433,7 +432,7 @@ const buildIntroView = () => `
 const buildAnalysisView = () => `
   <section class="quiz-card quiz-card--analysis">
     <div class="quiz-card__body">
-      <span class="quiz-card__eyebrow">Analizando tu perfil... ⚡</span>
+      <span class="quiz-card__eyebrow">Analizando tu perfil</span>
       <div class="analysis-visual">
         <div class="analysis-ring" aria-hidden="true"></div>
         <div class="analysis-copy">
@@ -453,11 +452,11 @@ const buildCaptureView = () => {
   return `
     <section class="quiz-card quiz-card--capture">
       <div class="quiz-card__body">
-        <span class="quiz-card__eyebrow">Tu resultado está listo 👀</span>
+        <span class="quiz-card__eyebrow">Resultado listo</span>
         <div>
           <h2>Déjanos tus datos para mostrarte tu resultado.</h2>
           <p class="quiz-card__copy">
-            También te permitirá pedir información de la carrera que mejor va contigo.
+            También podrás recibir información sobre la carrera recomendada.
           </p>
         </div>
         <div class="capture-grid">
@@ -483,8 +482,8 @@ const buildCaptureView = () => {
             </label>
             <span class="field-error" data-error-for="privacy"></span>
             <div class="quiz-card__footer">
-              <button class="button button--text" type="button" data-edit-answers>← Revisar respuestas</button>
-              <button class="button button--primary" type="submit">👉 Ver mi resultado 🚀</button>
+              <button class="button button--text" type="button" data-edit-answers>Volver</button>
+              <button class="button button--primary" type="submit">Ver resultado</button>
             </div>
           </form>
           <aside class="capture-summary">
@@ -493,7 +492,7 @@ const buildCaptureView = () => {
             <p>${top.profile}</p>
             <ul>
               <li>Tu resultado ya fue calculado.</li>
-              <li>También desbloquearás 2 rutas alternas.</li>
+              <li>También verás opciones relacionadas.</li>
               <li>Tus afinidades más altas son: ${state.results.topTraits.join(", ")}.</li>
             </ul>
           </aside>
@@ -548,9 +547,9 @@ const buildResultView = () => {
             <ul class="result-tags">${state.results.topTraits.map((trait) => `<li>${trait}</li>`).join("")}</ul>
             <ul class="feature-list">${top.points.map((point) => `<li>${point}</li>`).join("")}</ul>
             <div class="result-actions">
-              <a class="button button--primary" href="${getWhatsAppLink(message)}" target="_blank" rel="noreferrer">👉 Quiero más info por WhatsApp</a>
-              <button class="button button--secondary" type="button" data-view-career="${top.careerKey}">👉 Ver esta carrera</button>
-              <button class="button button--text" type="button" data-restart-quiz>👉 Hacer de nuevo el test</button>
+              <a class="button button--primary" href="${getWhatsAppLink(message)}" target="_blank" rel="noreferrer">Solicitar información por WhatsApp</a>
+              <button class="button button--secondary" type="button" data-view-career="${top.careerKey}">Ver esta carrera</button>
+              <button class="button button--text" type="button" data-restart-quiz">Hacer de nuevo el test</button>
             </div>
           </div>
           <div class="career-match-card">
