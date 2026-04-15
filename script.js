@@ -827,10 +827,9 @@ const buildIntroView = () => `
     <div class="quiz-card__body">
       <span class="quiz-card__eyebrow">Test vocacional DASC</span>
       <div>
-        <h2>Descubre que carrera, modalidad y ritmo van contigo.</h2>
+        <h2>Descubre tu mejor opcion.</h2>
         <p class="quiz-card__copy">
-          Este test combina intereses, estilo de aprendizaje, motivacion,
-          contexto real y barreras para darte una recomendacion mucho mas util.
+          Responde y obtiene una recomendacion clara segun tu perfil y tu contexto.
         </p>
       </div>
       <ul class="result-tags">
@@ -840,7 +839,7 @@ const buildIntroView = () => `
       </ul>
     </div>
     <div class="quiz-card__footer">
-      <p class="question-note">Duracion estimada: 4 a 5 minutos.</p>
+      <p class="question-note">Duracion estimada: 4 minutos.</p>
       <button class="button button--primary" type="button" data-launch-quiz>Empezar test</button>
     </div>
   </section>
@@ -858,7 +857,7 @@ const buildAnalysisView = () => `
         </div>
       </div>
       <p class="quiz-card__copy">
-        Estamos construyendo una recomendacion integral para orientarte mejor.
+        Estamos preparando tu resultado.
       </p>
     </div>
   </section>
@@ -874,10 +873,9 @@ const buildCaptureView = () => {
       <div class="quiz-card__body">
         <span class="quiz-card__eyebrow">Tu resultado esta listo</span>
         <div>
-          <h2>Dejanos tus datos para mostrarte tu recomendacion completa.</h2>
+          <h2>Dejanos tus datos para ver tu resultado.</h2>
           <p class="quiz-card__copy">
-            Veras tu carrera ideal, la modalidad que mejor se adapta a tu contexto
-            y una lectura sobre el apoyo que podrias necesitar para sostener tu avance.
+            Tambien podras solicitar informacion de la opcion recomendada.
           </p>
         </div>
         <div class="capture-grid">
@@ -908,12 +906,12 @@ const buildCaptureView = () => {
             </div>
           </form>
           <aside class="capture-summary">
-            <h3>Tu resultado incluye</h3>
+            <h3>Vas a ver</h3>
             <ul>
               <li>Carrera recomendada: ${topCareer.degree}</li>
               <li>Modalidad sugerida: ${modality.name}</li>
               <li>Nivel de riesgo detectado: ${risk.label}</li>
-              <li>Alternativas cercanas y mensaje personalizado</li>
+              <li>Opciones relacionadas</li>
             </ul>
           </aside>
         </div>
@@ -968,12 +966,12 @@ const buildResultView = () => {
   const modality = modalities[state.results.modalityKey];
   const motivatorMessage = motivationMessages[state.results.motivatorKey];
   const barrierText = state.results.barrierFlags.length
-    ? `Puntos a cuidar desde el inicio: ${state.results.barrierFlags.join(", ")}.`
-    : "No se detectaron barreras criticas en tu resultado.";
+    ? `Puntos a cuidar: ${state.results.barrierFlags.join(", ")}.`
+    : "No se detectaron barreras criticas.";
   const supportMessage =
     state.results.riskLevel === "high" || state.results.riskLevel === "medium"
-      ? "Una modalidad flexible con acompanamiento puede hacer una diferencia importante para sostener tu avance."
-      : "Tu resultado sugiere que, con una opcion alineada contigo, puedes avanzar con buen ritmo.";
+      ? "Una modalidad flexible puede ayudarte a sostener mejor tu avance."
+      : "Tu resultado sugiere buen ajuste con la opcion recomendada.";
   const leadName = state.lead.name.trim();
   const intro = leadName
     ? `${leadName}, tu resultado combina ${state.results.topSignals.slice(0, 2).join(" y ").toLowerCase()}.`
@@ -1009,7 +1007,7 @@ const buildResultView = () => {
           </div>
           <div class="career-match-card">
             <div class="career-match-card__top">
-              <strong>Lectura personalizada</strong>
+              <strong>Modalidad y contexto</strong>
               <span>${modality.name}</span>
             </div>
             <p>${topCareer.sales}</p>
@@ -1022,7 +1020,7 @@ const buildResultView = () => {
         </div>
         ${buildStatusCards()}
         <div>
-          <p class="result-overline">Tambien podrias explorar</p>
+          <p class="result-overline">Otras opciones cercanas</p>
           <div class="result-grid">
             ${buildAlternatives([secondCareer, thirdCareer].filter(Boolean))}
           </div>
