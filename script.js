@@ -3,7 +3,7 @@ const quizStage = document.querySelector("[data-quiz-stage]");
 const revealItems = document.querySelectorAll(".reveal");
 const careerCards = document.querySelectorAll("[data-career-card]");
 
-const WHATSAPP_NUMBER = "";
+const WHATSAPP_NUMBER = "5212223606438";
 const scaleLabels = [
   { value: 1, label: "Nada" },
   { value: 2, label: "Poco" },
@@ -19,112 +19,112 @@ const analysisMessages = [
 ];
 
 const signalLabels = {
-  logic: "Logica",
+  logic: "Lógica",
   creativity: "Creatividad",
   business: "Negocio",
   process: "Procesos",
-  technology: "Tecnologia",
-  analysis: "Analisis",
-  communication: "Comunicacion",
-  organization: "Organizacion",
+  technology: "Tecnología",
+  analysis: "Análisis",
+  communication: "Comunicación",
+  organization: "Organización",
 };
 
 const careers = {
   software: {
-    degree: "Ingenieria en Software",
+    degree: "Ingeniería en Software",
     profile: "Arquitecto Digital",
     description:
-      "Tu perfil se inclina hacia la construccion de soluciones, la programacion y la resolucion de problemas con base tecnica.",
+      "Tu perfil se inclina hacia la construcción de soluciones, la programación y la resolución de problemas con base técnica.",
     sales:
       "Puedes crecer creando productos digitales, plataformas y herramientas que resuelvan necesidades reales.",
     points: [
-      "Tienes buena afinidad con tecnologia y logica aplicada.",
-      "Te favorecen entornos donde construir y mejorar es parte del dia a dia.",
-      "Tu perfil conecta bien con retos tecnicos y desarrollo de producto.",
+      "Tienes buena afinidad con tecnología y lógica aplicada.",
+      "Te favorecen entornos donde construir y mejorar es parte del día a día.",
+      "Tu perfil conecta bien con retos técnicos y desarrollo de producto.",
     ],
-    next: ["Desarrollo web", "Apps moviles", "Producto digital"],
+    next: ["Desarrollo web", "Apps móviles", "Producto digital"],
     whatsapp:
-      "Hola, hice el test vocacional de DASC y mi resultado fue Ingenieria en Software. Me gustaria recibir mas informacion.",
+      "Hola, hice el test vocacional de DASC y mi resultado fue Ingeniería en Software. Me gustaría recibir más información.",
   },
   systems: {
     degree: "Sistemas Computacionales",
-    profile: "Gestor Tecnologico",
+    profile: "Gestor Tecnológico",
     description:
-      "Tu afinidad esta en la tecnologia aplicada, la operacion tecnica y la implementacion de soluciones dentro de organizaciones.",
+      "Tu afinidad está en la tecnología aplicada, la operación técnica y la implementación de soluciones dentro de organizaciones.",
     sales:
       "Tu perfil puede destacar conectando herramientas, infraestructura y soporte con necesidades reales del negocio.",
     points: [
-      "Te interesa que la tecnologia funcione bien y aporte valor.",
-      "Aprendes mejor cuando puedes llevar lo tecnico a la practica.",
-      "Tu perfil combina tecnologia con ejecucion operativa.",
+      "Te interesa que la tecnología funcione bien y aporte valor.",
+      "Aprendes mejor cuando puedes llevar lo técnico a la práctica.",
+      "Tu perfil combina tecnología con ejecución operativa.",
     ],
-    next: ["Infraestructura", "Soporte", "Implementacion"],
+    next: ["Infraestructura", "Soporte", "Implementación"],
     whatsapp:
-      "Hola, hice el test vocacional de DASC y mi resultado fue Sistemas Computacionales. Me gustaria recibir mas informacion.",
+      "Hola, hice el test vocacional de DASC y mi resultado fue Sistemas Computacionales. Me gustaría recibir más información.",
   },
   industrial: {
-    degree: "Ingenieria Industrial y Sistemas",
-    profile: "Optimizador Estrategico",
+    degree: "Ingeniería Industrial y Sistemas",
+    profile: "Optimizador Estratégico",
     description:
-      "Tu perfil muestra fuerza en analisis, procesos, eficiencia y mejora continua.",
+      "Tu perfil muestra fuerza en análisis, procesos, eficiencia y mejora continua.",
     sales:
       "Puedes aportar mucho detectando fallas, ordenando operaciones y mejorando resultados de forma medible.",
     points: [
-      "Te motiva entender como funciona un sistema completo.",
+      "Te motiva entender cómo funciona un sistema completo.",
       "Piensas en eficiencia, estructura y mejora continua.",
-      "Tu mirada analitica es valiosa para operaciones y procesos.",
+      "Tu mirada analítica es valiosa para operaciones y procesos.",
     ],
     next: ["Procesos", "Operaciones", "Mejora continua"],
     whatsapp:
-      "Hola, hice el test vocacional de DASC y mi resultado fue Ingenieria Industrial y Sistemas. Me gustaria recibir mas informacion.",
+      "Hola, hice el test vocacional de DASC y mi resultado fue Ingeniería Industrial y Sistemas. Me gustaría recibir más información.",
   },
   design: {
-    degree: "Diseno Interactivo",
+    degree: "Diseño Interactivo",
     profile: "Creador Visual",
     description:
       "Tu perfil combina sensibilidad visual, creatividad digital y gusto por construir experiencias atractivas.",
     sales:
       "Puedes crecer creando interfaces, contenido y experiencias que conecten con personas y marcas.",
     points: [
-      "Aprendes bien con referentes visuales y practica creativa.",
-      "Tu perfil necesita espacios donde la idea tambien se vea y se sienta bien.",
-      "Tienes afinidad con entornos donde creatividad y tecnologia se cruzan.",
+      "Aprendes bien con referentes visuales y práctica creativa.",
+      "Tu perfil necesita espacios donde la idea también se vea y se sienta bien.",
+      "Tienes afinidad con entornos donde creatividad y tecnología se cruzan.",
     ],
     next: ["Interfaces", "UX", "Contenido visual"],
     whatsapp:
-      "Hola, hice el test vocacional de DASC y mi resultado fue Diseno Interactivo. Me gustaria recibir mas informacion.",
+      "Hola, hice el test vocacional de DASC y mi resultado fue Diseño Interactivo. Me gustaría recibir más información.",
   },
   marketing: {
     degree: "Mercadotecnia Digital",
     profile: "Impulsor de Marcas",
     description:
-      "Tu perfil se acerca a la comunicacion, la creatividad y el entendimiento de audiencias, marcas y crecimiento.",
+      "Tu perfil se acerca a la comunicación, la creatividad y el entendimiento de audiencias, marcas y crecimiento.",
     sales:
       "Puedes destacar conectando mensajes, estrategias y resultados en entornos digitales.",
     points: [
-      "Tu perfil combina creatividad con negocio y comunicacion.",
+      "Tu perfil combina creatividad con negocio y comunicación.",
       "Te favorecen proyectos donde una idea tiene que conectar con personas.",
-      "Puedes crecer en campanas, contenido, marca y analitica comercial.",
+      "Puedes crecer en campañas, contenido, marca y analítica comercial.",
     ],
-    next: ["Campanas", "Branding", "Contenido"],
+    next: ["Campañas", "Branding", "Contenido"],
     whatsapp:
-      "Hola, hice el test vocacional de DASC y mi resultado fue Mercadotecnia Digital. Me gustaria recibir mas informacion.",
+      "Hola, hice el test vocacional de DASC y mi resultado fue Mercadotecnia Digital. Me gustaría recibir más información.",
   },
   admin: {
-    degree: "Administracion",
-    profile: "Lider Organizador",
+    degree: "Administración",
+    profile: "Líder Organizador",
     description:
-      "Tu perfil tiene buena afinidad con liderazgo, estructura, organizacion y vision de negocio.",
+      "Tu perfil tiene buena afinidad con liderazgo, estructura, organización y visión de negocio.",
     sales:
       "Puedes crecer coordinando equipos, decisiones y operaciones con una mirada clara de objetivos y resultados.",
     points: [
-      "Tienes afinidad con organizacion, negocio y toma de decisiones.",
+      "Tienes afinidad con organización, negocio y toma de decisiones.",
       "Te favorecen entornos donde ordenar y liderar hace diferencia.",
-      "Tu perfil conecta bien con gestion, empresa y emprendimiento.",
+      "Tu perfil conecta bien con gestión, empresa y emprendimiento.",
     ],
-    next: ["Gestion", "Liderazgo", "Emprendimiento"],
+    next: ["Gestión", "Liderazgo", "Emprendimiento"],
     whatsapp:
-      "Hola, hice el test vocacional de DASC y mi resultado fue Administracion. Me gustaria recibir mas informacion.",
+      "Hola, hice el test vocacional de DASC y mi resultado fue Administración. Me gustaría recibir más información.",
   },
 };
 
@@ -132,17 +132,17 @@ const modalities = {
   hyflex: {
     name: "HyFlex",
     description:
-      "Te conviene una modalidad que combine flexibilidad, acompanamiento y continuidad para estudiar sin soltar otras responsabilidades.",
+      "Te conviene una modalidad que combine flexibilidad, acompañamiento y continuidad para estudiar sin soltar otras responsabilidades.",
   },
   presencial: {
     name: "Presencial con estructura",
     description:
-      "Te favorece una modalidad con horarios claros, ritmo definido y acompanamiento cercano.",
+      "Te favorece una modalidad con horarios claros, ritmo definido y acompañamiento cercano.",
   },
   flexible: {
-    name: "Flexible con acompanamiento",
+    name: "Flexible con acompañamiento",
     description:
-      "Te conviene avanzar con autonomia, apoyo y opciones digitales para mantener el ritmo sin perder seguimiento.",
+      "Te conviene avanzar con autonomía, apoyo y opciones digitales para mantener el ritmo sin perder seguimiento.",
   },
 };
 
@@ -150,15 +150,15 @@ const learningProfiles = {
   visual: {
     name: "Visual",
     description:
-      "Aprendes mejor cuando ves ejemplos, referentes claros, graficos o contenido visual.",
+      "Aprendes mejor cuando ves ejemplos, referentes claros, gráficos o contenido visual.",
   },
   auditory: {
     name: "Auditivo",
     description:
-      "Te ayuda escuchar explicaciones, conversar ideas y procesar informacion en dialogo.",
+      "Te ayuda escuchar explicaciones, conversar ideas y procesar información en diálogo.",
   },
   kinesthetic: {
-    name: "Practico",
+    name: "Práctico",
     description:
       "Aprendes mejor haciendo, practicando y resolviendo casos reales.",
   },
@@ -166,13 +166,13 @@ const learningProfiles = {
 
 const motivationMessages = {
   stability:
-    "Buscas una decision que abra estabilidad, crecimiento y oportunidades claras a futuro.",
+    "Buscas una decisión que abra estabilidad, crecimiento y oportunidades claras a futuro.",
   creativity:
     "Necesitas una carrera donde puedas construir ideas propias y expresarte con libertad.",
   entrepreneurship:
     "Te mueve liderar, emprender y abrir camino por tu cuenta en el futuro.",
   employability:
-    "Valoras una opcion que te acerque pronto al mundo laboral y a experiencias reales.",
+    "Valoras una opción que te acerque pronto al mundo laboral y a experiencias reales.",
   impact:
     "Quieres que lo que estudies tenga utilidad real y genere impacto en personas o proyectos.",
 };
@@ -181,12 +181,12 @@ const riskMessages = {
   low: {
     label: "Bajo",
     description:
-      "Tu resultado muestra buena confianza para sostener una carrera si eliges una opcion alineada contigo.",
+      "Tu resultado muestra buena confianza para sostener una carrera si eliges una opción alineada contigo.",
   },
   medium: {
     label: "Medio",
     description:
-      "Hay algunas barreras que conviene atender desde el inicio. Una modalidad flexible y acompanamiento claro pueden ayudarte mucho.",
+      "Hay algunas barreras que conviene atender desde el inicio. Una modalidad flexible y acompañamiento claro pueden ayudarte mucho.",
   },
   high: {
     label: "Alto",
@@ -200,12 +200,12 @@ const steps = [
     id: "interests",
     block: "Bloque 1 de 6",
     title: "Intereses y afinidades",
-    subtitle: "Califica cada frase de 1 a 5 segun cuanto conecte contigo.",
+    subtitle: "Califica cada frase de 1 a 5 según cuánto conecte contigo.",
     type: "scale",
     items: [
       {
         id: "interest_complex",
-        label: "Me gusta resolver problemas complejos o tecnicos",
+        label: "Me gusta resolver problemas complejos o técnicos",
         careers: { software: 4, industrial: 2, systems: 2 },
         signals: { logic: 3, analysis: 2, technology: 1 },
       },
@@ -218,7 +218,7 @@ const steps = [
       },
       {
         id: "interest_business",
-        label: "Me interesa entender como funcionan los negocios",
+        label: "Me interesa entender cómo funcionan los negocios",
         careers: { admin: 4, marketing: 3, industrial: 2 },
         signals: { business: 3, organization: 1 },
       },
@@ -230,7 +230,7 @@ const steps = [
       },
       {
         id: "interest_tech",
-        label: "Me atrae programar o trabajar con tecnologia",
+        label: "Me atrae programar o trabajar con tecnología",
         careers: { software: 4, systems: 4, industrial: 1 },
         signals: { technology: 3, logic: 2 },
       },
@@ -246,19 +246,19 @@ const steps = [
     id: "learning",
     block: "Bloque 2 de 6",
     title: "Estilo de aprendizaje",
-    subtitle: "Responde como aprendes mejor en la practica.",
+    subtitle: "Responde cómo aprendes mejor en la práctica.",
     type: "scale",
     items: [
       {
         id: "learn_visual_examples",
-        label: "Aprendo mejor viendo ejemplos, graficos o videos",
+        label: "Aprendo mejor viendo ejemplos, gráficos o videos",
         learning: { visual: 3 },
         modality: { flexible: 1, hyflex: 1 },
         careers: { design: 1, marketing: 1 },
       },
       {
         id: "learn_visual_create",
-        label: "Me gusta disenar, editar o crear contenido visual",
+        label: "Me gusta diseñar, editar o crear contenido visual",
         learning: { visual: 3 },
         careers: { design: 3, marketing: 1 },
         signals: { creativity: 2, communication: 1 },
@@ -295,12 +295,12 @@ const steps = [
     id: "pedagogy",
     block: "Bloque 3 de 6",
     title: "Forma de estudiar",
-    subtitle: "Aqui vemos el ritmo y formato que te ayudan a sostener el aprendizaje.",
+    subtitle: "Aquí vemos el ritmo y formato que te ayudan a sostener el aprendizaje.",
     type: "scale",
     items: [
       {
         id: "ped_practical",
-        label: "Prefiero clases practicas mas que teoricas",
+        label: "Prefiero clases prácticas más que teóricas",
         careers: { systems: 2, industrial: 2, software: 1, design: 1 },
         modality: { hyflex: 2 },
         learning: { kinesthetic: 1 },
@@ -317,7 +317,7 @@ const steps = [
       },
       {
         id: "ped_online",
-        label: "Me adapto bien a clases en linea",
+        label: "Me adapto bien a clases en línea",
         modality: { hyflex: 2, flexible: 2 },
       },
       {
@@ -338,13 +338,13 @@ const steps = [
   {
     id: "motivation",
     block: "Bloque 4 de 6",
-    title: "Motivacion y decision",
-    subtitle: "Esto ayuda a personalizar el mensaje final y entender que buscas de una carrera.",
+    title: "Motivación y decisión",
+    subtitle: "Esto ayuda a personalizar el mensaje final y entender qué buscas de una carrera.",
     type: "scale",
     items: [
       {
         id: "mot_stability",
-        label: "Quiero una carrera que me de estabilidad economica",
+        label: "Quiero una carrera que me dé estabilidad económica",
         motivations: { stability: 3 },
         careers: { admin: 1, industrial: 1, systems: 1, software: 1 },
       },
@@ -388,7 +388,7 @@ const steps = [
       },
       {
         id: "scct_difficult",
-        label: "Creo que puedo aprender cosas dificiles si me esfuerzo",
+        label: "Creo que puedo aprender cosas difíciles si me esfuerzo",
         scct: "confidence",
       },
       {
@@ -399,12 +399,12 @@ const steps = [
       },
       {
         id: "scct_life",
-        label: "Estudiar una carrera mejorara mi calidad de vida",
+        label: "Estudiar una carrera mejorará mi calidad de vida",
         scct: "expectation",
       },
       {
         id: "scct_job",
-        label: "Creo que encontrare trabajo en el area que estudie",
+        label: "Creo que encontraré trabajo en el área que estudie",
         scct: "expectation",
       },
       {
@@ -414,9 +414,9 @@ const steps = [
       },
       {
         id: "scct_money",
-        label: "El dinero es un obstaculo para estudiar",
+        label: "El dinero es un obstáculo para estudiar",
         scct: "barrier",
-        barrierLabel: "Presion economica",
+        barrierLabel: "Presión económica",
       },
       {
         id: "scct_time",
@@ -427,9 +427,9 @@ const steps = [
       },
       {
         id: "scct_load",
-        label: "Me preocupa no poder con la carga academica",
+        label: "Me preocupa no poder con la carga académica",
         scct: "barrier",
-        barrierLabel: "Duda sobre carga academica",
+        barrierLabel: "Duda sobre carga académica",
       },
       {
         id: "scct_support",
@@ -448,39 +448,104 @@ const steps = [
     items: [
       {
         id: "ctx_work",
-        label: "Trabajas actualmente?",
+        label: "¿Trabajas actualmente?",
         options: [
-          { value: "yes", label: "Si, tiempo completo o parcial", modality: { hyflex: 3, flexible: 1 }, risk: 2 },
-          { value: "sometimes", label: "A veces o por temporadas", modality: { hyflex: 2, flexible: 1 }, risk: 1 },
-          { value: "no", label: "No por ahora", modality: { presencial: 1 }, risk: 0 },
+          {
+            value: "yes",
+            label: "Sí, tiempo completo o parcial",
+            modality: { hyflex: 3, flexible: 1 },
+            risk: 2,
+          },
+          {
+            value: "sometimes",
+            label: "A veces o por temporadas",
+            modality: { hyflex: 2, flexible: 1 },
+            risk: 1,
+          },
+          {
+            value: "no",
+            label: "No por ahora",
+            modality: { presencial: 1 },
+            risk: 0,
+          },
         ],
       },
       {
         id: "ctx_hours",
-        label: "Cuantas horas reales tienes disponibles al dia para estudiar?",
+        label: "¿Cuántas horas reales tienes disponibles al día para estudiar?",
         options: [
-          { value: "lt2", label: "Menos de 2 horas", modality: { hyflex: 3, flexible: 1 }, risk: 3 },
-          { value: "2to4", label: "Entre 2 y 4 horas", modality: { hyflex: 2, flexible: 1 }, risk: 1 },
-          { value: "4to6", label: "Entre 4 y 6 horas", modality: { presencial: 1, hyflex: 1 }, risk: 0 },
-          { value: "6plus", label: "Mas de 6 horas", modality: { presencial: 2 }, risk: -1 },
+          {
+            value: "lt2",
+            label: "Menos de 2 horas",
+            modality: { hyflex: 3, flexible: 1 },
+            risk: 3,
+          },
+          {
+            value: "2to4",
+            label: "Entre 2 y 4 horas",
+            modality: { hyflex: 2, flexible: 1 },
+            risk: 1,
+          },
+          {
+            value: "4to6",
+            label: "Entre 4 y 6 horas",
+            modality: { presencial: 1, hyflex: 1 },
+            risk: 0,
+          },
+          {
+            value: "6plus",
+            label: "Más de 6 horas",
+            modality: { presencial: 2 },
+            risk: -1,
+          },
         ],
       },
       {
         id: "ctx_schedule",
-        label: "Que ritmo te acomoda mas para estudiar?",
+        label: "¿Qué ritmo te acomoda más para estudiar?",
         options: [
-          { value: "weekdays", label: "Entre semana con horarios definidos", modality: { presencial: 3 }, risk: 0 },
-          { value: "saturday", label: "Sabados o bloques concentrados", modality: { hyflex: 2, flexible: 1 }, risk: 0 },
-          { value: "flex", label: "Necesito flexibilidad para moverme", modality: { hyflex: 3, flexible: 2 }, risk: 1 },
+          {
+            value: "weekdays",
+            label: "Entre semana con horarios definidos",
+            modality: { presencial: 3 },
+            risk: 0,
+          },
+          {
+            value: "saturday",
+            label: "Sábados o bloques concentrados",
+            modality: { hyflex: 2, flexible: 1 },
+            risk: 0,
+          },
+          {
+            value: "flex",
+            label: "Necesito flexibilidad para moverme",
+            modality: { hyflex: 3, flexible: 2 },
+            risk: 1,
+          },
         ],
       },
       {
         id: "ctx_keep_work",
-        label: "Te interesa estudiar sin dejar de trabajar?",
+        label: "¿Te interesa estudiar sin dejar de trabajar?",
         options: [
-          { value: "yes", label: "Si, eso es muy importante para mi", modality: { hyflex: 4, flexible: 2 }, risk: 1 },
-          { value: "maybe", label: "Seria ideal, pero depende", modality: { hyflex: 2, flexible: 1 }, risk: 0 },
-          { value: "no", label: "No es una prioridad en este momento", modality: { presencial: 2 }, risk: 0 },
+          {
+            value: "yes",
+            label: "Sí, eso es muy importante para mí",
+            modality: { hyflex: 4, flexible: 2 },
+            risk: 1,
+          },
+          {
+            value: "maybe",
+            label: "Sería ideal, pero depende",
+            modality: { hyflex: 2, flexible: 1 },
+            risk: 0,
+          },
+          {
+            value: "no",
+            label: "No es una prioridad en este momento",
+            modality: { presencial: 2 },
+            risk: 0,
+          },
         ],
       },
     ],
@@ -579,9 +644,7 @@ const resetHighlights = () => {
 const highlightCareer = (careerKey) => {
   resetHighlights();
   const card = document.querySelector(`[data-career-card="${careerKey}"]`);
-  if (!card) {
-    return;
-  }
+  if (!card) return;
 
   card.classList.add("is-highlighted");
   card.scrollIntoView({
@@ -603,9 +666,7 @@ const isStepComplete = (step) =>
   step.items.every((item) => state.responses[item.id] !== undefined);
 
 const applyWeightedMap = (target, source, factor) => {
-  if (!source) {
-    return;
-  }
+  if (!source) return;
 
   Object.entries(source).forEach(([key, value]) => {
     target[key] = (target[key] || 0) + value * factor;
@@ -643,9 +704,7 @@ const getResults = () => {
   steps.forEach((step) => {
     step.items.forEach((item) => {
       const response = state.responses[item.id];
-      if (response === undefined) {
-        return;
-      }
+      if (response === undefined) return;
 
       if (step.type === "scale") {
         const numericValue = Number(response);
@@ -661,7 +720,9 @@ const getResults = () => {
         if (item.scct === "expectation") expectationValues.push(numericValue);
         if (item.scct === "barrier") {
           barrierValues.push(numericValue);
-          if (numericValue >= 4 && item.barrierLabel) barrierFlags.push(item.barrierLabel);
+          if (numericValue >= 4 && item.barrierLabel) {
+            barrierFlags.push(item.barrierLabel);
+          }
         }
       }
 
@@ -695,6 +756,7 @@ const getResults = () => {
   const confidenceAvg = getAverage(confidenceValues, 3);
   const expectationAvg = getAverage(expectationValues, 3);
   const barrierAvg = getAverage(barrierValues, 2);
+
   const riskIndex =
     (6 - confidenceAvg) * 1.4 +
     (6 - expectationAvg) * 1.0 +
@@ -814,7 +876,7 @@ const buildStepView = () => {
             Volver
           </button>
           <button class="button button--primary" type="button" data-next-step ${complete ? "" : "disabled"}>
-            ${state.currentStep === steps.length - 1 ? "Ver analisis" : "Continuar"}
+            ${state.currentStep === steps.length - 1 ? "Ver análisis" : "Continuar"}
           </button>
         </div>
       </div>
@@ -827,19 +889,19 @@ const buildIntroView = () => `
     <div class="quiz-card__body">
       <span class="quiz-card__eyebrow">Test vocacional DASC</span>
       <div>
-        <h2>Descubre tu mejor opcion.</h2>
+        <h2>Descubre tu mejor opción.</h2>
         <p class="quiz-card__copy">
-          Responde y obtiene una recomendacion clara segun tu perfil y tu contexto.
+          Responde y obtén una recomendación clara según tu perfil y tu contexto.
         </p>
       </div>
       <ul class="result-tags">
         <li>Carrera ideal</li>
         <li>Modalidad recomendada</li>
-        <li>Senales de riesgo academico</li>
+        <li>Señales de riesgo académico</li>
       </ul>
     </div>
     <div class="quiz-card__footer">
-      <p class="question-note">Duracion estimada: 4 minutos.</p>
+      <p class="question-note">Duración estimada: 4 minutos.</p>
       <button class="button button--primary" type="button" data-launch-quiz>Empezar test</button>
     </div>
   </section>
@@ -871,18 +933,18 @@ const buildCaptureView = () => {
   return `
     <section class="quiz-card quiz-card--capture">
       <div class="quiz-card__body">
-        <span class="quiz-card__eyebrow">Tu resultado esta listo</span>
+        <span class="quiz-card__eyebrow">Tu resultado está listo</span>
         <div>
-          <h2>Dejanos tus datos para ver tu resultado.</h2>
+          <h2>Déjanos tus datos para ver tu resultado.</h2>
           <p class="quiz-card__copy">
-            Tambien podras solicitar informacion de la opcion recomendada.
+            También podrás solicitar información de la opción recomendada.
           </p>
         </div>
         <div class="capture-grid">
           <form class="form-grid" data-lead-form novalidate>
             <div class="field" data-field="name">
               <label for="lead-name">Nombre completo</label>
-              <input id="lead-name" name="name" type="text" value="${escapeHtml(state.lead.name)}" placeholder="Ej. Mariana Lopez" />
+              <input id="lead-name" name="name" type="text" value="${escapeHtml(state.lead.name)}" placeholder="Ej. Mariana López" />
               <span class="field-error" data-error-for="name"></span>
             </div>
             <div class="field" data-field="whatsapp">
@@ -948,7 +1010,7 @@ const buildStatusCards = () => {
         <p>${modality.description}</p>
       </article>
       <article class="status-card">
-        <span class="status-card__label">Como aprendes mejor</span>
+        <span class="status-card__label">Cómo aprendes mejor</span>
         <strong>${learning.name}</strong>
         <p>${learning.description}</p>
       </article>
@@ -967,17 +1029,17 @@ const buildResultView = () => {
   const motivatorMessage = motivationMessages[state.results.motivatorKey];
   const barrierText = state.results.barrierFlags.length
     ? `Puntos a cuidar: ${state.results.barrierFlags.join(", ")}.`
-    : "No se detectaron barreras criticas.";
+    : "No se detectaron barreras críticas.";
   const supportMessage =
     state.results.riskLevel === "high" || state.results.riskLevel === "medium"
       ? "Una modalidad flexible puede ayudarte a sostener mejor tu avance."
-      : "Tu resultado sugiere buen ajuste con la opcion recomendada.";
+      : "Tu resultado sugiere buen ajuste con la opción recomendada.";
   const leadName = state.lead.name.trim();
   const intro = leadName
     ? `${leadName}, tu resultado combina ${state.results.topSignals.slice(0, 2).join(" y ").toLowerCase()}.`
     : `Tu resultado combina ${state.results.topSignals.slice(0, 2).join(" y ").toLowerCase()}.`;
   const whatsappMessage = leadName
-    ? `Hola, soy ${leadName}. Hice el test vocacional de DASC y mi resultado fue ${topCareer.degree}. Tambien me recomendaron la modalidad ${modality.name}. Me gustaria recibir mas informacion.`
+    ? `Hola, soy ${leadName}. Hice el test vocacional de DASC y mi resultado fue ${topCareer.degree}. También me recomendaron la modalidad ${modality.name}. Me gustaría recibir más información.`
     : topCareer.whatsapp;
 
   return `
@@ -1000,7 +1062,7 @@ const buildResultView = () => {
               ${topCareer.points.map((point) => `<li>${point}</li>`).join("")}
             </ul>
             <div class="result-actions">
-              <a class="button button--primary" href="${getWhatsAppLink(whatsappMessage)}" target="_blank" rel="noreferrer">Solicitar informacion por WhatsApp</a>
+              <a class="button button--primary" href="${getWhatsAppLink(whatsappMessage)}" target="_blank" rel="noreferrer">Solicitar información por WhatsApp</a>
               <button class="button button--secondary" type="button" data-view-career="${topCareer.careerKey}">Ver esta carrera</button>
               <button class="button button--text" type="button" data-restart-quiz">Hacer de nuevo el test</button>
             </div>
@@ -1032,36 +1094,44 @@ const buildResultView = () => {
 
 const render = () => {
   if (!quizStage) return;
+
   if (state.screen === "intro") {
     quizStage.innerHTML = buildIntroView();
     return;
   }
+
   if (state.screen === "step") {
     quizStage.innerHTML = buildStepView();
     return;
   }
+
   if (state.screen === "analysis") {
     quizStage.innerHTML = buildAnalysisView();
     clearAnalysis();
     state.analysisIndex = 0;
+
     state.analysisTimer = window.setInterval(() => {
       state.analysisIndex = (state.analysisIndex + 1) % analysisMessages.length;
       const target = document.querySelector("[data-analysis-message]");
       if (target) target.textContent = analysisMessages[state.analysisIndex];
     }, 900);
+
     state.analysisTimeout = window.setTimeout(() => {
       clearAnalysis();
       state.screen = "capture";
       render();
     }, 2500);
+
     return;
   }
+
   if (state.screen === "capture") {
     quizStage.innerHTML = buildCaptureView();
     const privacyInput = quizStage.querySelector("#lead-privacy");
     if (privacyInput) privacyInput.checked = state.lead.privacy;
     return;
   }
+
   if (state.screen === "result") {
     quizStage.innerHTML = buildResultView();
   }
@@ -1082,10 +1152,14 @@ const validateLead = (formData) => {
   const whatsapp = formData.get("whatsapp").trim();
   const email = formData.get("email").trim();
   const privacy = formData.get("privacy") === "on";
+
   if (name.length < 3) errors.name = "Escribe tu nombre completo para continuar.";
-  if (!/^[\d\s()+-]{10,}$/.test(whatsapp)) errors.whatsapp = "Ingresa un WhatsApp valido.";
-  if (email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) errors.email = "Revisa el formato del correo.";
+  if (!/^[\d\s()+-]{10,}$/.test(whatsapp)) errors.whatsapp = "Ingresa un WhatsApp válido.";
+  if (email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+    errors.email = "Revisa el formato del correo.";
+  }
   if (!privacy) errors.privacy = "Necesitas aceptar el aviso de privacidad.";
+
   return errors;
 };
 
@@ -1126,12 +1200,14 @@ document.addEventListener("click", (event) => {
   if (nextStep) {
     const step = steps[state.currentStep];
     if (!isStepComplete(step)) return;
+
     if (state.currentStep === steps.length - 1) {
       state.results = getResults();
       state.screen = "analysis";
       render();
       return;
     }
+
     state.currentStep += 1;
     render();
     return;
@@ -1172,9 +1248,11 @@ document.addEventListener("submit", (event) => {
   if (!form) return;
 
   event.preventDefault();
+
   const formData = new FormData(form);
   const errors = validateLead(formData);
   showErrors(errors);
+
   if (Object.keys(errors).length > 0) return;
 
   state.lead = {
