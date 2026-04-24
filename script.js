@@ -5,6 +5,7 @@ const careerCards = document.querySelectorAll("[data-career-card]");
 
 const WHATSAPP_NUMBER = "5212223606438";
 const LEAD_WEBHOOK_URL = "";
+const PRIVACY_NOTICE_URL = "https://dasc.edu.mx/aviso%20de%20privacidad/";
 const scaleLabels = [
   { value: 1, label: "Nada" },
   { value: 2, label: "Poco" },
@@ -965,15 +966,15 @@ const buildIntroView = () => `
     <div class="quiz-card__body">
       <span class="quiz-card__eyebrow">Test vocacional DASC</span>
       <div>
-        <h2>Descubre tu mejor opcion.</h2>
+        <h2>Comienza tu test.</h2>
         <p class="quiz-card__copy">
-          Responde y obtiene una recomendacion clara segun tu perfil y tu contexto.
+          Responde con honestidad para recibir una recomendacion clara.
         </p>
       </div>
       <ul class="result-tags">
-        <li>Carrera ideal</li>
-        <li>Modalidad recomendada</li>
-        <li>Senales de riesgo academico</li>
+        <li>6 bloques</li>
+        <li>4 a 5 minutos</li>
+        <li>Resultado personalizado</li>
       </ul>
     </div>
     <div class="quiz-card__footer">
@@ -995,7 +996,7 @@ const buildAnalysisView = () => `
         </div>
       </div>
       <p class="quiz-card__copy">
-        Estamos preparando tu resultado.
+        Estamos preparando tu resultado final.
       </p>
     </div>
   </section>
@@ -1013,7 +1014,7 @@ const buildCaptureView = () => {
         <div>
           <h2>Dejanos tus datos para ver tu resultado.</h2>
           <p class="quiz-card__copy">
-            Tambien podras solicitar informacion de la opcion recomendada.
+            Tambien podras solicitar mas informacion de la opcion recomendada.
           </p>
         </div>
         <div class="capture-grid">
@@ -1035,7 +1036,10 @@ const buildCaptureView = () => {
             </div>
             <label class="checkbox" data-field="privacy">
               <input id="lead-privacy" name="privacy" type="checkbox" />
-              <span>Acepto aviso de privacidad</span>
+              <span>
+                Acepto el
+                <a href="${PRIVACY_NOTICE_URL}" target="_blank" rel="noreferrer">aviso de privacidad</a>
+              </span>
             </label>
             <span class="field-error" data-error-for="privacy"></span>
             <div class="quiz-card__footer">
@@ -1139,7 +1143,6 @@ const buildResultView = () => {
             </ul>
             <div class="result-actions">
               <a class="button button--primary" href="${getWhatsAppLink(whatsappMessage)}" target="_blank" rel="noreferrer">Solicitar informacion por WhatsApp</a>
-              <button class="button button--secondary" type="button" data-view-career="${topCareer.careerKey}">Ver esta carrera</button>
               <button class="button button--text" type="button" data-restart-quiz">Hacer de nuevo el test</button>
             </div>
           </div>
@@ -1347,3 +1350,4 @@ setScrolledState();
 window.addEventListener("scroll", setScrolledState, { passive: true });
 revealVisibleItems();
 render();
+
