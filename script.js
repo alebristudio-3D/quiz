@@ -7,6 +7,7 @@ const splashScreen = document.querySelector("[data-splash-screen]");
 const WHATSAPP_NUMBER = "5212223606438";
 const LEAD_WEBHOOK_URL = "";
 const PRIVACY_NOTICE_URL = "https://dasc.edu.mx/aviso%20de%20privacidad/";
+
 const scaleLabels = [
   { value: 1, label: "Nada" },
   { value: 2, label: "Poco" },
@@ -582,9 +583,7 @@ const resetHighlights = () => {
 const highlightCareer = (careerKey) => {
   resetHighlights();
   const card = document.querySelector(`[data-career-card="${careerKey}"]`);
-  if (!card) {
-    return;
-  }
+  if (!card) return;
 
   card.classList.add("is-highlighted");
   card.scrollIntoView({
@@ -603,10 +602,7 @@ const getWhatsAppLink = (message) => {
 };
 
 const hideSplashScreen = () => {
-  if (!splashScreen) {
-    return;
-  }
-
+  if (!splashScreen) return;
   splashScreen.classList.add("is-hidden");
 };
 
@@ -614,9 +610,7 @@ const isStepComplete = (step) =>
   step.items.every((item) => state.responses[item.id] !== undefined);
 
 const applyWeightedMap = (target, source, factor) => {
-  if (!source) {
-    return;
-  }
+  if (!source) return;
 
   Object.entries(source).forEach(([key, value]) => {
     target[key] = (target[key] || 0) + value * factor;
@@ -723,13 +717,16 @@ const getResults = () => {
         if (item.scct === "expectation") expectationValues.push(numericValue);
         if (item.scct === "barrier") {
           barrierValues.push(numericValue);
-          if (numericValue >= 4 && item.barrierLabel) barrierFlags.push(item.barrierLabel);
+          if (numericValue >= 4 && item.barrierLabel) {
+            barrierFlags.push(item.barrierLabel);
+          }
         }
       }
 
       if (step.type === "choice") {
         const selectedOption = item.options.find((option) => option.value === response);
         if (!selectedOption) return;
+
         applyWeightedMap(careerScores, selectedOption.careers, 1);
         applyWeightedMap(modalityScores, selectedOption.modality, 1);
         applyWeightedMap(modalityContextScores, selectedOption.modality, 1);
@@ -793,11 +790,7 @@ const getResults = () => {
     modalityContextScores.flexible += 2;
   }
 
-  if (
-    worksNow === "yes" ||
-    studyHours === "lt2" ||
-    keepWorking === "yes"
-  ) {
+  if (worksNow === "yes" || studyHours === "lt2" || keepWorking === "yes") {
     modalityScores.hyflex += 3;
     modalityContextScores.hyflex += 3;
   }
@@ -827,12 +820,14 @@ const getResults = () => {
 
       const contextDelta =
         (modalityContextScores[keyB] || 0) - (modalityContextScores[keyA] || 0);
+
       if (contextDelta !== 0) {
         return contextDelta;
       }
 
       return keyA.localeCompare(keyB);
     })[0][0];
+
   const learningKey = Object.entries(learningScores).sort(([, a], [, b]) => b - a)[0][0];
   const motivatorKey = Object.entries(motivationScores).sort(([, a], [, b]) => b - a)[0][0];
   const topSignals = Object.entries(signalScores)
@@ -843,6 +838,7 @@ const getResults = () => {
   const confidenceAvg = getAverage(confidenceValues, 3);
   const expectationAvg = getAverage(expectationValues, 3);
   const barrierAvg = getAverage(barrierValues, 2);
+
   const riskIndex =
     (6 - confidenceAvg) * 1.4 +
     (6 - expectationAvg) * 1.0 +
@@ -868,6 +864,7 @@ const buildScaleRows = (step) =>
   step.items
     .map((item) => {
       const selected = Number(state.responses[item.id] || 0);
+
       return `
         <div class="scale-row">
           <div class="scale-row__content">
@@ -899,6 +896,7 @@ const buildChoiceRows = (step) =>
   step.items
     .map((item) => {
       const selected = state.responses[item.id];
+
       return `
         <div class="choice-block">
           <p class="choice-block__label">${item.label}</p>
@@ -1007,32 +1005,62 @@ const buildCaptureView = () => {
           <form class="form-grid" data-lead-form novalidate>
             <div class="field" data-field="name">
               <label for="lead-name">Nombre completo</label>
-              <input id="lead-name" name="name" type="text" value="${escapeHtml(state.lead.name)}" placeholder="Ej. Mariana Lopez" />
+              <input
+                id="lead-name"
+                name="name"
+                type="text"
+                value="${escapeHtml(state.lead.name)}"
+                placeholder="Ej. Mariana Lopez"
+              />
               <span class="field-error" data-error-for="name"></span>
             </div>
+
             <div class="field" data-field="whatsapp">
               <label for="lead-whatsapp">WhatsApp</label>
-              <input id="lead-whatsapp" name="whatsapp" type="tel" value="${escapeHtml(state.lead.whatsapp)}" placeholder="Ej. 5512345678" />
+              <input
+                id="lead-whatsapp"
+                name="whatsapp"
+                type="tel"
+                value="${escapeHtml(state.lead.whatsapp)}"
+                placeholder="Ej. 5512345678"
+              />
               <span class="field-error" data-error-for="whatsapp"></span>
             </div>
+
             <div class="field" data-field="email">
               <label for="lead-email">Correo (opcional)</label>
-              <input id="lead-email" name="email" type="email" value="${escapeHtml(state.lead.email)}" placeholder="Ej. nombre@correo.com" />
+              <input
+                id="lead-email"
+                name="email"
+                type="email"
+                value="${escapeHtml(state.lead.email)}"
+                placeholder="Ej. nombre@correo.com"
+              />
               <span class="field-error" data-error-for="email"></span>
             </div>
+
             <label class="checkbox" data-field="privacy">
               <input id="lead-privacy" name="privacy" type="checkbox" />
               <span>
                 Acepto el
-                <a href="${PRIVACY_NOTICE_URL}" target="_blank" rel="noreferrer">aviso de privacidad</a>
+                <a href="${PRIVACY_NOTICE_URL}" target="_blank" rel="noreferrer">
+                  aviso de privacidad
+                </a>
               </span>
             </label>
+
             <span class="field-error" data-error-for="privacy"></span>
+
             <div class="quiz-card__footer">
-              <button class="button button--text" type="button" data-prev-step-from-capture>Volver</button>
-              <button class="button button--primary" type="submit">Ver resultado</button>
+              <button class="button button--text" type="button" data-prev-step-from-capture>
+                Volver
+              </button>
+              <button class="button button--primary" type="submit">
+                Ver resultado
+              </button>
             </div>
           </form>
+
           <aside class="capture-summary">
             <h3>Vas a ver</h3>
             <ul>
@@ -1128,10 +1156,20 @@ const buildResultView = () => {
               ${topCareer.points.map((point) => `<li>${point}</li>`).join("")}
             </ul>
             <div class="result-actions">
-              <a class="button button--primary" href="${getWhatsAppLink(whatsappMessage)}" target="_blank" rel="noreferrer">Solicitar informacion por WhatsApp</a>
-              <button class="button button--text" type="button" data-restart-quiz">Hacer de nuevo el test</button>
+              <a
+                class="button button--primary"
+                href="${getWhatsAppLink(whatsappMessage)}"
+                target="_blank"
+                rel="noreferrer"
+              >
+                Solicitar informacion por WhatsApp
+              </a>
+              <button class="button button--text" type="button" data-restart-quiz>
+                Hacer de nuevo el test
+              </button>
             </div>
           </div>
+
           <div class="career-match-card">
             <div class="career-match-card__top">
               <strong>Modalidad y contexto</strong>
@@ -1145,7 +1183,9 @@ const buildResultView = () => {
             </ul>
           </div>
         </div>
+
         ${buildStatusCards()}
+
         <div>
           <p class="result-overline">Otras opciones cercanas</p>
           <div class="result-grid">
@@ -1159,32 +1199,39 @@ const buildResultView = () => {
 
 const render = () => {
   if (!quizStage) return;
+
   if (state.screen === "step") {
     quizStage.innerHTML = buildStepView();
     return;
   }
+
   if (state.screen === "analysis") {
     quizStage.innerHTML = buildAnalysisView();
     clearAnalysis();
     state.analysisIndex = 0;
+
     state.analysisTimer = window.setInterval(() => {
       state.analysisIndex = (state.analysisIndex + 1) % analysisMessages.length;
       const target = document.querySelector("[data-analysis-message]");
       if (target) target.textContent = analysisMessages[state.analysisIndex];
     }, 900);
+
     state.analysisTimeout = window.setTimeout(() => {
       clearAnalysis();
       state.screen = "capture";
       render();
     }, 2500);
+
     return;
   }
+
   if (state.screen === "capture") {
     quizStage.innerHTML = buildCaptureView();
     const privacyInput = quizStage.querySelector("#lead-privacy");
     if (privacyInput) privacyInput.checked = state.lead.privacy;
     return;
   }
+
   if (state.screen === "result") {
     quizStage.innerHTML = buildResultView();
   }
@@ -1194,6 +1241,7 @@ const showErrors = (errors) => {
   ["name", "whatsapp", "email", "privacy"].forEach((key) => {
     const field = quizStage.querySelector(`[data-field="${key}"]`);
     const target = quizStage.querySelector(`[data-error-for="${key}"]`);
+
     if (field) field.classList.toggle("is-error", Boolean(errors[key]));
     if (target) target.textContent = errors[key] || "";
   });
@@ -1205,10 +1253,16 @@ const validateLead = (formData) => {
   const whatsapp = formData.get("whatsapp").trim();
   const email = formData.get("email").trim();
   const privacy = formData.get("privacy") === "on";
+
   if (name.length < 3) errors.name = "Escribe tu nombre completo para continuar.";
-  if (!/^[\d\s()+-]{10,}$/.test(whatsapp)) errors.whatsapp = "Ingresa un WhatsApp valido.";
-  if (email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) errors.email = "Revisa el formato del correo.";
+  if (!/^[\\d\\s()+-]{10,}$/.test(whatsapp)) {
+    errors.whatsapp = "Ingresa un WhatsApp valido.";
+  }
+  if (email && !/^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/.test(email)) {
+    errors.email = "Revisa el formato del correo.";
+  }
   if (!privacy) errors.privacy = "Necesitas aceptar el aviso de privacidad.";
+
   return errors;
 };
 
@@ -1236,13 +1290,16 @@ document.addEventListener("click", (event) => {
   }
 
   if (scaleOption) {
-    state.responses[scaleOption.dataset.scaleItem] = Number(scaleOption.dataset.scaleValue);
+    state.responses[scaleOption.dataset.scaleItem] = Number(
+      scaleOption.dataset.scaleValue
+    );
     render();
     return;
   }
 
   if (choiceOption) {
-    state.responses[choiceOption.dataset.choiceItem] = choiceOption.dataset.choiceValue;
+    state.responses[choiceOption.dataset.choiceItem] =
+      choiceOption.dataset.choiceValue;
     render();
     return;
   }
@@ -1250,12 +1307,14 @@ document.addEventListener("click", (event) => {
   if (nextStep) {
     const step = steps[state.currentStep];
     if (!isStepComplete(step)) return;
+
     if (state.currentStep === steps.length - 1) {
       state.results = getResults();
       state.screen = "analysis";
       render();
       return;
     }
+
     state.currentStep += 1;
     render();
     return;
@@ -1296,9 +1355,11 @@ document.addEventListener("submit", async (event) => {
   if (!form) return;
 
   event.preventDefault();
+
   const formData = new FormData(form);
   const errors = validateLead(formData);
   showErrors(errors);
+
   if (Object.keys(errors).length > 0) return;
 
   state.lead = {
