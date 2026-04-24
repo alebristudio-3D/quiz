@@ -2,6 +2,7 @@ const body = document.body;
 const quizStage = document.querySelector("[data-quiz-stage]");
 const revealItems = document.querySelectorAll(".reveal");
 const careerCards = document.querySelectorAll("[data-career-card]");
+const splashScreen = document.querySelector("[data-splash-screen]");
 
 const WHATSAPP_NUMBER = "5212223606438";
 const LEAD_WEBHOOK_URL = "";
@@ -498,7 +499,7 @@ const leadCache = (() => {
 })();
 
 const state = {
-  screen: "intro",
+  screen: "step",
   currentStep: 0,
   responses: {},
   results: null,
@@ -555,11 +556,11 @@ const revealVisibleItems = () => {
 };
 
 const scrollToQuiz = () => {
-  document.getElementById("quiz")?.scrollIntoView({
+  window.scrollTo({
+    top: 0,
     behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches
       ? "auto"
       : "smooth",
-    block: "start",
   });
 };
 
@@ -599,6 +600,14 @@ const getWhatsAppLink = (message) => {
   return WHATSAPP_NUMBER
     ? `https://wa.me/${WHATSAPP_NUMBER}?text=${encoded}`
     : `https://wa.me/?text=${encoded}`;
+};
+
+const hideSplashScreen = () => {
+  if (!splashScreen) {
+    return;
+  }
+
+  splashScreen.classList.add("is-hidden");
 };
 
 const isStepComplete = (step) =>
@@ -961,29 +970,6 @@ const buildStepView = () => {
   `;
 };
 
-const buildIntroView = () => `
-  <section class="quiz-card quiz-card--intro">
-    <div class="quiz-card__body">
-      <span class="quiz-card__eyebrow">Test vocacional DASC</span>
-      <div>
-        <h2>Comienza tu test.</h2>
-        <p class="quiz-card__copy">
-          Responde con honestidad para recibir una recomendacion clara.
-        </p>
-      </div>
-      <ul class="result-tags">
-        <li>6 bloques</li>
-        <li>4 a 5 minutos</li>
-        <li>Resultado personalizado</li>
-      </ul>
-    </div>
-    <div class="quiz-card__footer">
-      <p class="question-note">Duracion estimada: 4 minutos.</p>
-      <button class="button button--primary" type="button" data-launch-quiz>Empezar test</button>
-    </div>
-  </section>
-`;
-
 const buildAnalysisView = () => `
   <section class="quiz-card quiz-card--analysis">
     <div class="quiz-card__body">
@@ -1173,10 +1159,6 @@ const buildResultView = () => {
 
 const render = () => {
   if (!quizStage) return;
-  if (state.screen === "intro") {
-    quizStage.innerHTML = buildIntroView();
-    return;
-  }
   if (state.screen === "step") {
     quizStage.innerHTML = buildStepView();
     return;
@@ -1243,6 +1225,7 @@ document.addEventListener("click", (event) => {
   if (launch) {
     clearAnalysis();
     resetHighlights();
+    hideSplashScreen();
     state.screen = "step";
     state.currentStep = 0;
     state.responses = {};
@@ -1294,7 +1277,7 @@ document.addEventListener("click", (event) => {
   if (restart) {
     clearAnalysis();
     resetHighlights();
-    state.screen = "intro";
+    state.screen = "step";
     state.currentStep = 0;
     state.responses = {};
     state.results = null;
@@ -1350,4 +1333,3 @@ setScrolledState();
 window.addEventListener("scroll", setScrolledState, { passive: true });
 revealVisibleItems();
 render();
-
