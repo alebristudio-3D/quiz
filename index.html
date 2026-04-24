@@ -3,10 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Test vocacional DASC | Descubre qué carrera va contigo</title>
+    <title>Test vocacional DASC</title>
     <meta
       name="description"
-      content="Haz el test vocacional de DASC, descubre tu perfil y conoce la carrera que mejor conecta con tus intereses."
+      content="Descubre qué carrera y modalidad van contigo con el test vocacional de DASC."
     />
     <script>
       document.documentElement.classList.add("has-js");
@@ -23,254 +23,35 @@
     <div class="ambient ambient--one" aria-hidden="true"></div>
     <div class="ambient ambient--two" aria-hidden="true"></div>
 
-    <header class="site-header">
-      <a class="brand" href="#top" aria-label="DASC, ir al inicio">
-        <span class="brand__mark">D</span>
-        <span class="brand__copy">
-          <strong>DASC</strong>
-          <span>Test vocacional digital</span>
-        </span>
-      </a>
+    <div class="splash-screen" data-splash-screen>
+      <div class="splash-screen__panel">
+        <img
+          class="splash-screen__logo"
+          src="logo-dasc-azul.png"
+          alt="DASC"
+          width="1024"
+          height="248"
+        />
+        <p class="splash-screen__eyebrow">Test vocacional</p>
+        <h1 class="splash-screen__title">Descubre tu mejor opción</h1>
+        <p class="splash-screen__copy">
+          Responde el test y conoce la carrera y modalidad que mejor van contigo.
+        </p>
+        <button class="button button--primary" type="button" data-start-quiz>
+          Comenzar
+        </button>
+      </div>
+    </div>
 
-      <nav class="site-nav" aria-label="Navegación principal">
-        <a href="#beneficios">Cómo funciona</a>
-        <a href="#carreras">Carreras</a>
-        <a href="#quiz">Test</a>
-      </nav>
-
-      <button class="button button--ghost" type="button" data-start-quiz>
-        Empezar test
-      </button>
-    </header>
-
-    <main id="top">
-      <section class="hero reveal">
-        <div class="container hero__layout">
-          <div class="hero__content">
-            <p class="eyebrow">DASC</p>
-            <h1>Descubre qué carrera y modalidad van contigo</h1>
-            <p class="hero__lead">
-              Responde el test y obtén una recomendación clara según tu perfil,
-              tu forma de aprender y tu contexto actual.
-            </p>
-
-            <ul class="badge-row" aria-label="Beneficios del test">
-              <li>4 a 5 minutos</li>
-              <li>Carrera + modalidad</li>
-              <li>Resultado personalizado</li>
-            </ul>
-
-            <div class="hero__actions">
-              <button class="button button--primary" type="button" data-start-quiz>
-                Empezar test
-              </button>
-              <a class="button button--secondary" href="#carreras">
-                Ver carreras
-              </a>
-            </div>
-
-            <p class="hero__note">Responde y ve tu resultado al final.</p>
-          </div>
-
-          <div class="hero__visual">
-            <div class="preview-card">
-              <div class="preview-card__top">
-                <span>Bloque 1 de 6</span>
-                <span>Escala 1-5</span>
-              </div>
-              <div class="preview-card__bar">
-                <span></span>
-              </div>
-              <h2>Intereses y afinidades</h2>
-              <div class="preview-options" aria-hidden="true">
-                <div class="preview-option is-active">
-                  <strong>Me gusta resolver problemas complejos o técnicos</strong>
-                  <span>Marca de 1 a 5 qué tanto se parece a ti</span>
-                </div>
-                <div class="preview-option">
-                  <strong>Me interesa entender cómo funcionan los negocios</strong>
-                  <span>El test combina intereses, aprendizaje y contexto</span>
-                </div>
-                <div class="preview-option">
-                  <strong>Me atrae programar o trabajar con tecnología</strong>
-                  <span>El resultado ya no se queda solo en la carrera</span>
-                </div>
-              </div>
-            </div>
-
-            <div class="hero-stat hero-stat--primary">
-              <span>Resultado final</span>
-              <strong>Carrera, modalidad y riesgo</strong>
-            </div>
-
-            <div class="hero-stat hero-stat--secondary">
-              <span>Lectura completa</span>
-              <strong>Perfil, contexto y recomendación</strong>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="section reveal" id="beneficios">
-        <div class="container">
-          <div class="section-heading">
-            <p class="eyebrow">Por qué funciona</p>
-            <h2>Una experiencia clara para ayudarte a decidir mejor.</h2>
-          </div>
-
-          <div class="feature-grid">
-            <article class="feature-card">
-              <span class="feature-card__number">01</span>
-              <h3>Rápido y sin fricción</h3>
-              <p>Avanzas bloque por bloque sin perder ritmo.</p>
-            </article>
-
-            <article class="feature-card">
-              <span class="feature-card__number">02</span>
-              <h3>Resultado más preciso</h3>
-              <p>Incluye carrera ideal, modalidad sugerida y señales de riesgo.</p>
-            </article>
-
-            <article class="feature-card">
-              <span class="feature-card__number">03</span>
-              <h3>Listo para continuar</h3>
-              <p>Al final puedes pedir información en el momento.</p>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <section class="section reveal" id="carreras">
-        <div class="container">
-          <div class="section-heading section-heading--split">
-            <div>
-              <p class="eyebrow">Carreras DASC</p>
-              <h2>Seis rutas para perfiles distintos dentro del mundo digital.</h2>
-            </div>
-            <p class="section-copy">
-              El test detecta afinidades entre tecnología, diseño, operación,
-              negocio, comunicación y liderazgo para recomendar la mejor opción.
-            </p>
-          </div>
-
-          <div class="career-grid">
-            <article class="career-card" id="career-software" data-career-card="software">
-              <span class="career-card__tag">Perfil: Arquitecto Digital</span>
-              <h3>Ingeniería en Software</h3>
-              <p>
-                Para quienes quieren construir apps, productos digitales y
-                soluciones tecnológicas desde cero.
-              </p>
-              <ul class="career-card__chips">
-                <li>Programación</li>
-                <li>Lógica</li>
-                <li>Innovación</li>
-              </ul>
-            </article>
-
-            <article class="career-card" id="career-systems" data-career-card="systems">
-              <span class="career-card__tag">Perfil: Gestor Tecnológico</span>
-              <h3>Sistemas Computacionales</h3>
-              <p>
-                Ideal para quienes ven la tecnología como una infraestructura
-                estratégica dentro de las organizaciones.
-              </p>
-              <ul class="career-card__chips">
-                <li>Sistemas</li>
-                <li>Soporte tecnológico</li>
-                <li>Implementación</li>
-              </ul>
-            </article>
-
-            <article class="career-card" id="career-industrial" data-career-card="industrial">
-              <span class="career-card__tag">Perfil: Optimizador Estratégico</span>
-              <h3>Ingeniería Industrial y Sistemas</h3>
-              <p>
-                Para mentes analíticas que disfrutan mejorar procesos, tiempos,
-                recursos y operaciones.
-              </p>
-              <ul class="career-card__chips">
-                <li>Procesos</li>
-                <li>Optimización</li>
-                <li>Análisis</li>
-              </ul>
-            </article>
-
-            <article class="career-card" id="career-design" data-career-card="design">
-              <span class="career-card__tag">Perfil: Creador Visual</span>
-              <h3>Diseño Interactivo</h3>
-              <p>
-                Para quienes conectan ideas, estética y experiencia digital en
-                piezas visuales memorables.
-              </p>
-              <ul class="career-card__chips">
-                <li>UI</li>
-                <li>Creatividad</li>
-                <li>Experiencia</li>
-              </ul>
-            </article>
-
-            <article class="career-card" id="career-marketing" data-career-card="marketing">
-              <span class="career-card__tag">Perfil: Impulsor de Marcas</span>
-              <h3>Mercadotecnia Digital</h3>
-              <p>
-                Para perfiles que quieren conectar ideas con audiencias, marcas
-                y crecimiento digital.
-              </p>
-              <ul class="career-card__chips">
-                <li>Campañas</li>
-                <li>Contenido</li>
-                <li>Estrategia</li>
-              </ul>
-            </article>
-
-            <article class="career-card" id="career-admin" data-career-card="admin">
-              <span class="career-card__tag">Perfil: Líder Organizador</span>
-              <h3>Administración</h3>
-              <p>
-                Para quienes tienen visión de negocio, liderazgo y facilidad
-                para coordinar equipos y decisiones.
-              </p>
-              <ul class="career-card__chips">
-                <li>Negocios</li>
-                <li>Gestión</li>
-                <li>Liderazgo</li>
-              </ul>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <section class="section section--quiz reveal" id="quiz">
-        <div class="container">
-          <div class="quiz-shell">
-            <div class="quiz-shell__aside">
-              <p class="eyebrow">Test</p>
-              <h2>Responde y descubre tu mejor opción.</h2>
-              <p class="quiz-shell__copy">
-                Intereses, aprendizaje, barreras y contexto en una sola lectura.
-              </p>
-
-              <ul class="quiz-points">
-                <li>6 bloques</li>
-                <li>Carrera ideal</li>
-                <li>Modalidad sugerida</li>
-                <li>Resultado final</li>
-              </ul>
-            </div>
-
-            <div class="quiz-app" data-quiz-app>
-              <div class="quiz-stage" data-quiz-stage aria-live="polite"></div>
-            </div>
+    <main class="app-shell" id="top">
+      <section class="quiz-page">
+        <div class="quiz-page__inner">
+          <div class="quiz-app quiz-app--solo" data-quiz-app>
+            <div class="quiz-stage" data-quiz-stage aria-live="polite"></div>
           </div>
         </div>
       </section>
     </main>
-
-    <footer class="site-footer">
-      <p>DASC · Test vocacional digital</p>
-      <a href="#top">Volver arriba</a>
-    </footer>
 
     <script src="script.js"></script>
   </body>
